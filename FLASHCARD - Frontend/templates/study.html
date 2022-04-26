@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SELECT DECK</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="../static/images/icons/flashcard_icon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+<body>
+	<div class="container-login0-form-btn fixed-bottom">
+		<button class="login3-form-btn" style="border-radius: 0%;" id="home" type="button">
+			GO TO HOME
+		</button>
+	</div>
+
+	<script type="text/javascript">
+		document.getElementById("home").onclick = function () {
+			location.href = "dashboard.html";
+		};
+	</script>
+
+	<div class="limiter">
+		<div class="container-login0">
+			<div class="wrap-login0 d-flex justify-content-center">
+				<span class="login0-form-title">
+					CHOOSE A DECK
+				</span>
+
+				<form class="login0-form validate-form w-100" method="post">
+					{% if decks %}
+                        <ol>
+                            {% set c = 0 %}
+                            {% for i in decks %}
+                                {% set c = c + 1 %}
+                                <li>
+                                    <div class="container-login0-form-btn">
+                                        <button class="login2-form-btn" value="{{i.dID}}" name="selectedDeck" type="submit">
+                                            {{i.dName}}
+                                        </button>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    {% endif %}
+				</form>
+
+				<span class="login0-form-title">
+				</span>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../static/vendor/select2/select2.min.js"></script>
+	<script src="../static/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="../static/js/main.js"></script>
+</body>
+</html>
